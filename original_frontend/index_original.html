@@ -1,0 +1,1501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Yasir Broast — Fresh Food & Great Taste</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    /* ===== RESET & VARIABLES ===== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --gold: #f5b342;
+      --gold-dark: #d4941e;
+      --gold-light: #ffd966;
+      --dark: #1e1e1e;
+      --darker: #121212;
+      --cream: #fff8e7;
+      --text-light: #f0f0f0;
+      --text-muted: #b0b0b0;
+      --shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+      --radius: 16px;
+      --font-heading: 'Playfair Display', serif;
+      --font-body: 'Inter', sans-serif;
+      --transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--font-body);
+      background-color: var(--darker);
+      color: var(--text-light);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ===== SCROLLBAR ===== */
+    ::-webkit-scrollbar {
+      width: 10px;
+    }
+    ::-webkit-scrollbar-track {
+      background: var(--darker);
+    }
+    ::-webkit-scrollbar-thumb {
+      background: var(--gold-dark);
+      border-radius: 10px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: var(--gold);
+    }
+
+    /* ===== ANIMATED HEADER ===== */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(18, 18, 18, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(245, 179, 66, 0.15);
+      animation: headerGlow 4s ease-in-out infinite alternate;
+      transition: var(--transition);
+    }
+
+    @keyframes headerGlow {
+      0% {
+        box-shadow: 0 0 0px rgba(245, 179, 66, 0);
+        border-bottom-color: rgba(245, 179, 66, 0.1);
+      }
+      100% {
+        box-shadow: 0 4px 30px rgba(245, 179, 66, 0.15);
+        border-bottom-color: rgba(245, 179, 66, 0.4);
+      }
+    }
+
+    .header-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 80px;
+      animation: headerSlideDown 0.8s ease-out;
+    }
+
+    @keyframes headerSlideDown {
+      from {
+        opacity: 0;
+        transform: translateY(-30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .logo {
+      font-family: var(--font-heading);
+      font-weight: 800;
+      font-size: 1.8rem;
+      color: var(--cream);
+      letter-spacing: 1px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+      animation: logoPulse 3s ease-in-out infinite;
+    }
+
+    .logo i {
+      color: var(--gold);
+      font-size: 2rem;
+      animation: iconBounce 2s ease-in-out infinite;
+    }
+
+    @keyframes logoPulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.02); }
+    }
+
+    @keyframes iconBounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-4px); }
+    }
+
+    .logo span {
+      color: var(--gold);
+      font-size: 2.2rem;
+      line-height: 1;
+    }
+
+    .main-nav {
+      display: flex;
+      gap: 32px;
+      align-items: center;
+    }
+
+    .main-nav a {
+      color: var(--text-light);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.95rem;
+      position: relative;
+      padding: 6px 0;
+      transition: var(--transition);
+      letter-spacing: 0.5px;
+    }
+
+    .main-nav a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--gold), var(--gold-light));
+      transition: width 0.3s ease;
+      border-radius: 2px;
+    }
+
+    .main-nav a:hover {
+      color: var(--gold);
+    }
+
+    .main-nav a:hover::after {
+      width: 100%;
+    }
+
+    .nav-cta {
+      background: var(--gold);
+      color: var(--darker);
+      border: none;
+      padding: 12px 28px;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: var(--transition);
+      text-decoration: none;
+      display: inline-block;
+      box-shadow: 0 4px 15px rgba(245, 179, 66, 0.3);
+      animation: ctaPulse 2.5s ease-in-out infinite;
+    }
+
+    .nav-cta:hover {
+      background: var(--gold-light);
+      transform: translateY(-2px) scale(1.02);
+      box-shadow: 0 8px 25px rgba(245, 179, 66, 0.5);
+    }
+
+    @keyframes ctaPulse {
+      0%, 100% { box-shadow: 0 4px 15px rgba(245, 179, 66, 0.3); }
+      50% { box-shadow: 0 4px 25px rgba(245, 179, 66, 0.6); }
+    }
+
+    /* Mobile menu */
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 8px;
+    }
+
+    .menu-toggle span {
+      width: 26px;
+      height: 3px;
+      background: var(--gold);
+      border-radius: 3px;
+      transition: var(--transition);
+    }
+
+    /* ===== HERO SECTION ===== */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 120px 24px 100px;
+      background: url('https://images.unsplash.com/photo-1585937421612-70a008356fbe?q=80&w=1936&auto=format&fit=crop') center/cover no-repeat;
+      background-attachment: fixed;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        135deg,
+        rgba(0, 0, 0, 0.85) 0%,
+        rgba(0, 0, 0, 0.7) 50%,
+        rgba(0, 0, 0, 0.85) 100%
+      );
+      z-index: 1;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 900px;
+      animation: heroFadeUp 1.2s ease-out;
+    }
+
+    @keyframes heroFadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background: rgba(245, 179, 66, 0.15);
+      border: 1px solid rgba(245, 179, 66, 0.4);
+      color: var(--gold);
+      padding: 8px 20px;
+      border-radius: 50px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+      backdrop-filter: blur(4px);
+      animation: badgeShimmer 3s ease-in-out infinite;
+    }
+
+    @keyframes badgeShimmer {
+      0%, 100% { border-color: rgba(245, 179, 66, 0.4); }
+      50% { border-color: rgba(245, 179, 66, 0.9); }
+    }
+
+    .hero h1 {
+      font-family: var(--font-heading);
+      font-size: clamp(2.8rem, 7vw, 5rem);
+      font-weight: 800;
+      line-height: 1.15;
+      margin-bottom: 16px;
+      color: #fff;
+      text-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+    }
+
+    .hero h1 .gold {
+      color: var(--gold);
+      display: inline-block;
+      animation: textGlow 2s ease-in-out infinite alternate;
+    }
+
+    @keyframes textGlow {
+      from { text-shadow: 0 0 20px rgba(245, 179, 66, 0.3); }
+      to { text-shadow: 0 0 40px rgba(245, 179, 66, 0.7); }
+    }
+
+    .hero p {
+      font-size: 1.15rem;
+      color: var(--text-muted);
+      max-width: 600px;
+      margin: 0 auto 36px;
+      font-weight: 400;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 16px 36px;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      text-decoration: none;
+      transition: var(--transition);
+      border: 2px solid transparent;
+      cursor: pointer;
+      letter-spacing: 0.5px;
+    }
+
+    .btn-primary {
+      background: var(--gold);
+      color: var(--darker);
+      box-shadow: 0 8px 30px rgba(245, 179, 66, 0.35);
+    }
+
+    .btn-primary:hover {
+      background: var(--gold-light);
+      transform: translateY(-3px) scale(1.02);
+      box-shadow: 0 12px 40px rgba(245, 179, 66, 0.5);
+    }
+
+    .btn-outline {
+      border-color: rgba(255, 255, 255, 0.4);
+      color: #fff;
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(4px);
+    }
+
+    .btn-outline:hover {
+      border-color: var(--gold);
+      color: var(--gold);
+      background: rgba(245, 179, 66, 0.1);
+      transform: translateY(-3px);
+    }
+
+    /* ===== SECTION STYLES ===== */
+    .section {
+      padding: 100px 24px;
+      position: relative;
+    }
+
+    .section-dark {
+      background: var(--dark);
+    }
+
+    .section-darker {
+      background: var(--darker);
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      color: var(--gold);
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-family: var(--font-heading);
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 16px;
+      line-height: 1.2;
+    }
+
+    .section-sub {
+      color: var(--text-muted);
+      max-width: 600px;
+      margin: 0 auto 50px;
+      font-size: 1.05rem;
+    }
+
+    .center {
+      text-align: center;
+    }
+
+    /* ===== ABOUT SECTION ===== */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .about-text p {
+      color: var(--text-muted);
+      margin-bottom: 20px;
+      font-size: 1.02rem;
+    }
+
+    .skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 24px;
+      list-style: none;
+    }
+
+    .skill-tags li {
+      background: rgba(245, 179, 66, 0.12);
+      color: var(--gold);
+      padding: 8px 18px;
+      border-radius: 50px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      border: 1px solid rgba(245, 179, 66, 0.2);
+      transition: var(--transition);
+    }
+
+    .skill-tags li:hover {
+      background: rgba(245, 179, 66, 0.25);
+      transform: translateY(-2px);
+    }
+
+    .photo-frame {
+      position: relative;
+      width: 100%;
+      max-width: 380px;
+      aspect-ratio: 1/1;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .photo-frame .circle {
+      position: absolute;
+      border-radius: 50%;
+      border: 3px solid transparent;
+      animation: rotateCircle 6s linear infinite;
+    }
+
+    .photo-frame .circle1 {
+      width: 100%;
+      height: 100%;
+      border-top-color: var(--gold);
+      border-right-color: var(--gold-dark);
+      animation-duration: 5s;
+    }
+
+    .photo-frame .circle2 {
+      width: 112%;
+      height: 112%;
+      border-top-color: var(--gold-light);
+      border-left-color: var(--gold);
+      animation-duration: 8s;
+      animation-direction: reverse;
+    }
+
+    .photo-frame .circle3 {
+      width: 124%;
+      height: 124%;
+      border-top-color: var(--gold-dark);
+      border-right-color: var(--gold-light);
+      animation-duration: 12s;
+    }
+
+    @keyframes rotateCircle {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    .photo-frame img {
+      width: 78%;
+      height: 78%;
+      object-fit: cover;
+      border-radius: 50%;
+      position: relative;
+      z-index: 5;
+      border: 4px solid rgba(245, 179, 66, 0.6);
+      box-shadow: 0 20px 60px rgba(245, 179, 66, 0.25);
+      transition: var(--transition);
+      animation: photoPulse 3s ease-in-out infinite;
+    }
+
+    .photo-frame img:hover {
+      transform: scale(1.04);
+      border-color: var(--gold);
+      box-shadow: 0 25px 70px rgba(245, 179, 66, 0.4);
+    }
+
+    @keyframes photoPulse {
+      0%, 100% { box-shadow: 0 20px 60px rgba(245, 179, 66, 0.25); }
+      50% { box-shadow: 0 20px 80px rgba(245, 179, 66, 0.5); }
+    }
+
+    /* ===== MENU CARDS (new tab link) ===== */
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+    }
+
+    .menu-card {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(245, 179, 66, 0.12);
+      border-radius: var(--radius);
+      padding: 32px 24px;
+      text-align: center;
+      transition: var(--transition);
+      backdrop-filter: blur(4px);
+      position: relative;
+      overflow: hidden;
+      text-decoration: none;
+      color: inherit;
+      display: block;
+    }
+
+    .menu-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+      opacity: 0;
+      transition: var(--transition);
+    }
+
+    .menu-card:hover::before {
+      opacity: 1;
+    }
+
+    .menu-card:hover {
+      transform: translateY(-8px);
+      background: rgba(245, 179, 66, 0.06);
+      border-color: rgba(245, 179, 66, 0.3);
+      box-shadow: var(--shadow);
+    }
+
+    .menu-icon {
+      font-size: 2.5rem;
+      margin-bottom: 16px;
+      display: block;
+      color: var(--gold);
+      transition: var(--transition);
+    }
+
+    .menu-card:hover .menu-icon {
+      transform: scale(1.1) rotate(-5deg);
+    }
+
+    .menu-card h3 {
+      font-family: var(--font-heading);
+      font-size: 1.3rem;
+      color: #fff;
+      margin-bottom: 8px;
+    }
+
+    .menu-card p {
+      color: var(--text-muted);
+      font-size: 0.92rem;
+    }
+
+    .menu-price {
+      display: inline-block;
+      margin-top: 14px;
+      color: var(--gold);
+      font-weight: 700;
+      font-size: 1.1rem;
+      letter-spacing: 1px;
+    }
+
+    /* ===== CONTACT SECTION ===== */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+      align-items: start;
+    }
+
+    .contact-info p {
+      color: var(--text-muted);
+      margin-bottom: 24px;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 14px 0;
+      color: var(--text-light);
+      text-decoration: none;
+      font-weight: 500;
+      transition: var(--transition);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .contact-item:hover {
+      color: var(--gold);
+      padding-left: 8px;
+    }
+
+    .contact-item i {
+      color: var(--gold);
+      width: 22px;
+      text-align: center;
+      font-size: 1.1rem;
+    }
+
+    .contact-form {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(245, 179, 66, 0.1);
+      border-radius: var(--radius);
+      padding: 36px;
+      backdrop-filter: blur(6px);
+    }
+
+    .contact-form label {
+      display: block;
+      margin-bottom: 20px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--text-muted);
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      margin-top: 6px;
+      padding: 14px 16px;
+      background: rgba(0, 0, 0, 0.3);
+      border: 1px solid rgba(245, 179, 66, 0.15);
+      border-radius: 10px;
+      color: #fff;
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      transition: var(--transition);
+    }
+
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      outline: none;
+      border-color: var(--gold);
+      box-shadow: 0 0 0 3px rgba(245, 179, 66, 0.15);
+    }
+
+    .contact-form button {
+      width: 100%;
+      padding: 16px;
+      background: var(--gold);
+      color: var(--darker);
+      border: none;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: var(--transition);
+      letter-spacing: 0.5px;
+      box-shadow: 0 8px 30px rgba(245, 179, 66, 0.3);
+    }
+
+    .contact-form button:hover {
+      background: var(--gold-light);
+      transform: translateY(-2px);
+      box-shadow: 0 12px 40px rgba(245, 179, 66, 0.5);
+    }
+
+    /* ===== FOOTER (enhanced with policy & adsense blocks) ===== */
+    .site-footer {
+      background: var(--darker);
+      border-top: 1px solid rgba(245, 179, 66, 0.1);
+      padding: 48px 24px 32px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .site-footer::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+      animation: footerShimmer 3s ease-in-out infinite;
+    }
+
+    @keyframes footerShimmer {
+      0% { left: -100%; }
+      50% { left: 100%; }
+      100% { left: 100%; }
+    }
+
+    .footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1fr;
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+
+    .footer-col h4 {
+      font-family: var(--font-heading);
+      color: var(--gold);
+      font-size: 1.1rem;
+      margin-bottom: 20px;
+      letter-spacing: 0.5px;
+      position: relative;
+      padding-bottom: 8px;
+    }
+
+    .footer-col h4::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 40px;
+      height: 2px;
+      background: var(--gold);
+      border-radius: 2px;
+    }
+
+    .footer-col p,
+    .footer-col a {
+      color: var(--text-muted);
+      font-size: 0.88rem;
+      text-decoration: none;
+      display: block;
+      margin-bottom: 10px;
+      transition: var(--transition);
+    }
+
+    .footer-col a:hover {
+      color: var(--gold);
+      padding-left: 4px;
+    }
+
+    .footer-col .contact-line {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--text-muted);
+      font-size: 0.88rem;
+      margin-bottom: 10px;
+    }
+
+    .footer-col .contact-line i {
+      color: var(--gold);
+      width: 16px;
+      font-size: 0.9rem;
+    }
+
+    /* mini contact form in footer */
+    .footer-contact-form {
+      margin-top: 12px;
+    }
+
+    .footer-contact-form label {
+      display: block;
+      margin-bottom: 12px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--text-muted);
+    }
+
+    .footer-contact-form input,
+    .footer-contact-form textarea {
+      width: 100%;
+      margin-top: 4px;
+      padding: 10px 12px;
+      background: rgba(0, 0, 0, 0.4);
+      border: 1px solid rgba(245, 179, 66, 0.15);
+      border-radius: 8px;
+      color: #fff;
+      font-family: var(--font-body);
+      font-size: 0.82rem;
+      transition: var(--transition);
+    }
+
+    .footer-contact-form input:focus,
+    .footer-contact-form textarea:focus {
+      outline: none;
+      border-color: var(--gold);
+    }
+
+    .footer-contact-form button {
+      width: 100%;
+      padding: 12px;
+      background: var(--gold);
+      color: var(--darker);
+      border: none;
+      border-radius: 40px;
+      font-weight: 700;
+      font-size: 0.85rem;
+      cursor: pointer;
+      transition: var(--transition);
+      margin-top: 6px;
+    }
+
+    .footer-contact-form button:hover {
+      background: var(--gold-light);
+      transform: translateY(-2px);
+    }
+
+    /* AdSense placeholder */
+    .adsense-block {
+      margin: 30px 0 20px;
+      padding: 18px 12px;
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px dashed rgba(245, 179, 66, 0.2);
+      border-radius: 12px;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.8rem;
+      letter-spacing: 1px;
+      transition: var(--transition);
+    }
+
+    .adsense-block:hover {
+      border-color: rgba(245, 179, 66, 0.5);
+      background: rgba(245, 179, 66, 0.03);
+    }
+
+    .adsense-block i {
+      color: var(--gold);
+      margin-right: 6px;
+    }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+      padding-top: 24px;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .footer-bottom p {
+      color: var(--text-muted);
+      font-size: 0.82rem;
+    }
+
+    .footer-bottom p .gold {
+      color: var(--gold);
+      font-weight: 600;
+    }
+
+    .footer-legal-nav {
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .footer-legal-nav a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.82rem;
+      transition: var(--transition);
+      position: relative;
+    }
+
+    .footer-legal-nav a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 1.5px;
+      background: var(--gold);
+      transition: width 0.3s ease;
+    }
+
+    .footer-legal-nav a:hover {
+      color: var(--gold);
+    }
+
+    .footer-legal-nav a:hover::after {
+      width: 100%;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 900px) {
+      .about-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .photo-frame {
+        max-width: 300px;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .main-nav {
+        position: absolute;
+        top: 80px;
+        left: 0;
+        right: 0;
+        background: rgba(18, 18, 18, 0.98);
+        backdrop-filter: blur(12px);
+        flex-direction: column;
+        padding: 24px;
+        gap: 20px;
+        border-bottom: 1px solid rgba(245, 179, 66, 0.15);
+        display: none;
+      }
+
+      .main-nav.open {
+        display: flex;
+        animation: navSlide 0.3s ease-out;
+      }
+
+      @keyframes navSlide {
+        from {
+          opacity: 0;
+          transform: translateY(-10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .menu-toggle {
+        display: flex;
+      }
+
+      .nav-cta {
+        display: none;
+      }
+
+      .hero h1 {
+        font-size: clamp(2rem, 9vw, 3rem);
+      }
+
+      .hero-actions {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .btn {
+        width: 100%;
+        max-width: 280px;
+        justify-content: center;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .footer-legal-nav {
+        justify-content: center;
+      }
+
+      .section {
+        padding: 60px 20px;
+      }
+
+      .contact-form {
+        padding: 24px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .header-inner {
+        height: 70px;
+      }
+
+      .logo {
+        font-size: 1.4rem;
+      }
+
+      .logo i {
+        font-size: 1.6rem;
+      }
+
+      .logo span {
+        font-size: 1.8rem;
+      }
+
+      .hero {
+        padding: 100px 20px 80px;
+      }
+
+      .hero-badge {
+        font-size: 0.7rem;
+        padding: 6px 14px;
+      }
+
+      .menu-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .photo-frame {
+        max-width: 240px;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 28px;
+      }
+
+      .footer-legal-nav {
+        gap: 12px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== HEADER ===== -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="#" class="logo">
+        <i class="fas fa-drumstick-bite"></i>
+        YASIR BROAST<span>.</span>
+      </a>
+
+      <nav class="main-nav" id="mainNav">
+        <a href="#home">Home</a>
+        <a href="#menu">Menu</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <a href="yasir broast order.html" class="nav-cta">
+        <i class="fas fa-utensils"></i> Order Now
+      </a>
+
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero" id="home">
+    <div class="hero-content">
+      <div class="hero-badge">
+        <i class="fas fa-star"></i> #1 Broast in Town
+      </div>
+      <h1>
+        Fresh Food<br>
+        <span class="gold">Great Taste</span><br>
+        Every Time
+      </h1>
+      <p>Taste that brings you back. Crispy, juicy, and made with love — just the way you like it.</p>
+      <div class="hero-actions">
+        <a href="#menu" class="btn btn-primary">
+          <i class="fas fa-utensils"></i> Explore Menu
+        </a>
+        <a href="#contact" class="btn btn-outline">
+          <i class="fas fa-phone"></i> Contact Us
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== MENU / SERVICES (click opens full menu in new tab) ===== -->
+  <section class="section section-dark" id="menu">
+    <div class="container">
+      <div class="center">
+        <p class="section-label">Our Menu</p>
+        <h2 class="section-title">Crispy & Delicious</h2>
+        <p class="section-sub">Every bite is a burst of flavor. Try our signature broast and more.</p>
+      </div>
+
+      <div class="menu-grid">
+        <!-- Chicken Broast Card – opens Broast menu in new tab -->
+        <a href="javascript:void(0)" onclick="openMenuPage('broast')" class="menu-card">
+          <span class="menu-icon"><i class="fas fa-drumstick-bite"></i></span>
+          <h3>Chicken Broast</h3>
+          <p>Crispy outside, juicy inside — our signature recipe.</p>
+          <span class="menu-price">Rs. 620</span>
+        </a>
+
+        <!-- Burgers Card – opens Burgers menu in new tab -->
+        <a href="javascript:void(0)" onclick="openMenuPage('burger')" class="menu-card">
+          <span class="menu-icon"><i class="fas fa-hamburger"></i></span>
+          <h3>Burgers & Sandwiches</h3>
+          <p>Big Mouth, Zinger, Grilled & more.</p>
+          <span class="menu-price">from Rs. 450</span>
+        </a>
+
+        <!-- Pakistani Specialities Card – opens specialities menu in new tab -->
+        <a href="javascript:void(0)" onclick="openMenuPage('specialities')" class="menu-card">
+          <span class="menu-icon"><i class="fas fa-utensils"></i></span>
+          <h3>Pakistani Specialities</h3>
+          <p>Karahi, Biryani, Kunna & more.</p>
+          <span class="menu-price">from Rs. 850</span>
+        </a>
+
+        <!-- Fish & Chips Card – opens Broast/Fish menu in new tab -->
+        <a href="javascript:void(0)" onclick="openMenuPage('broast')" class="menu-card">
+          <span class="menu-icon"><i class="fas fa-fish"></i></span>
+          <h3>Fish & Chips</h3>
+          <p>Golden fried fish with crispy fries.</p>
+          <span class="menu-price">Rs. 590</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ABOUT (with animated photo frame) ===== -->
+  <section class="section section-darker" id="about">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-text">
+          <p class="section-label">About Us</p>
+          <h2 class="section-title">Our Story</h2>
+          <p>
+            Yasir Broast started with a simple mission — to serve the crispiest, most flavorful broast in town. 
+            We use only fresh chicken, our secret blend of spices, and cook every order to perfection.
+          </p>
+          <p>
+            From our humble beginning to becoming a local favorite, we've never compromised on quality. 
+            Every meal is prepared with love and served with a smile.
+          </p>
+          <ul class="skill-tags">
+            <li><i class="fas fa-check-circle"></i> 100% Fresh</li>
+            <li><i class="fas fa-check-circle"></i> Halal</li>
+            <li><i class="fas fa-check-circle"></i> Fast Delivery</li>
+            <li><i class="fas fa-check-circle"></i> Family Recipes</li>
+          </ul>
+        </div>
+
+        <div class="photo-frame">
+          <span class="circle circle1"></span>
+          <span class="circle circle2"></span>
+          <span class="circle circle3"></span>
+          <img src="https://images.unsplash.com/photo-1562967914-608f82629710?q=80&w=1000&auto=format&fit=crop" alt="Delicious Broast">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CONTACT ===== -->
+  <section class="section section-dark" id="contact">
+    <div class="container">
+      <div class="center" style="margin-bottom: 50px;">
+        <p class="section-label">Get in Touch</p>
+        <h2 class="section-title">Visit Us or Order Online</h2>
+        <p class="section-sub">We're just a call away. Order now for pickup or delivery.</p>
+      </div>
+
+      <div class="contact-grid">
+        <div class="contact-info">
+          <p>Have a question or want to place an order? Reach out — we're always happy to help.</p>
+
+          <a href="tel:+923001234567" class="contact-item">
+            <i class="fas fa-phone-alt"></i> +92 300 1234567
+          </a>
+          <a href="https://wa.me/923001234567" class="contact-item">
+            <i class="fab fa-whatsapp"></i> WhatsApp: +92 300 1234567
+          </a>
+          <a href="mailto:info@yasirbroast.com" class="contact-item">
+            <i class="fas fa-envelope"></i> info@yasirbroast.com
+          </a>
+          <div class="contact-item" style="cursor: default;">
+            <i class="fas fa-map-marker-alt"></i> Main Boulevard, Lahore, Pakistan
+          </div>
+          <div class="contact-item" style="cursor: default;">
+            <i class="fas fa-clock"></i> Open Daily: 11:00 AM — 11:00 PM
+          </div>
+        </div>
+
+        
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER (enhanced with forms, policy, adsense) ===== -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+
+      <!-- AdSense-ready placeholder -->
+      <div class="adsense-block">
+        <i class="fas fa-ad"></i> YASIR BROAST-Contect
+      </div>
+
+      <div class="footer-grid">
+        <!-- Column 1: Brand & mini contact form -->
+        <div class="footer-col">
+          <h4>Yasir Broast</h4>
+          <p style="margin-bottom: 16px; color: var(--text-muted); font-size: 0.88rem;">
+            Fresh food, great taste. Order online or visit us.
+          </p>
+          <div class="footer-contact-form">
+            <form onsubmit="event.preventDefault(); sendFooterWhatsApp();">
+              <label>
+                Name
+                <input type="text" id="footerName" placeholder="Your name" required>
+              </label>
+              <label>
+                Adress
+                <input type="adress" id="footeradress" placeholder="your Adress" required>
+              </label>
+              <label>
+                Order / Message
+                <textarea id="footerMessage" rows="2" placeholder="What would you like?" required></textarea>
+              </label>
+              <button type="submit">
+                <i class="fab fa-whatsapp"></i> Send Order
+              </button>
+            </form>
+          </div>
+        </div>
+
+        <!-- Column 2: Navigation -->
+        <div class="footer-col">
+          <h4>Explore</h4>
+          <a href="#home">Home</a>
+          <a href="#menu">Menu</a>
+          <a href="#about">About</a>
+          <a href="#contact">Contact</a>
+          <a href="javascript:void(0)" onclick="openMenuPage('broast')">Broast</a>
+          <a href="javascript:void(0)" onclick="openMenuPage('burger')">Burgers</a>
+          <a href="javascript:void(0)" onclick="openMenuPage('specialities')">Specialities</a>
+        </div>
+
+        <!-- Column 3: Contact Info -->
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <div class="contact-line"><i class="fas fa-phone-alt"></i> +92 300 1234567</div>
+          <div class="contact-line"><i class="fab fa-whatsapp"></i> +92 300 1234567</div>
+          <div class="contact-line"><i class="fas fa-envelope"></i> info@yasirbroast.com</div>
+          <div class="contact-line"><i class="fas fa-map-marker-alt"></i> Main Boulevard, Lahore</div>
+          <div class="contact-line"><i class="fas fa-clock"></i> 11 AM – 11 PM</div>
+        </div>
+
+        <!-- Column 4: Legal / Policy -->
+        <div class="footer-col">
+          <h4>Legal</h4>
+          <a href="javascript:void(0)" onclick="openPolicy('privacy')">Privacy Policy</a>
+          <a href="javascript:void(0)" onclick="openPolicy('terms')">Terms & Conditions</a>
+          <a href="javascript:void(0)" onclick="openPolicy('faq')">FAQ</a>
+        </div>
+      </div>
+
+      <!-- Bottom bar -->
+      <div class="footer-bottom">
+        <p>&copy; <span id="year"></span> <span class="gold">Yasir Broast</span>. All rights reserved.</p>
+        <nav class="footer-legal-nav">
+          <a href="javascript:void(0)" onclick="openPolicy('privacy')">Privacy Policy</a>
+          <a href="javascript:void(0)" onclick="openPolicy('terms')">Terms & Conditions</a>
+          <a href="javascript:void(0)" onclick="openPolicy('faq')">FAQ</a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===== JAVASCRIPT ===== -->
+  <script>
+    // Set current year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Mobile menu toggle
+    const menuToggle = document.getElementById('menuToggle');
+    const mainNav = document.getElementById('mainNav');
+
+    menuToggle.addEventListener('click', () => {
+      mainNav.classList.toggle('open');
+    });
+
+    // Close menu on link click
+    mainNav.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        mainNav.classList.remove('open');
+      });
+    });
+
+    // WhatsApp send function (main contact form)
+    function sendToWhatsApp() {
+      const phone = "923001234567";
+
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const message = document.getElementById('message').value.trim();
+
+      if (!name || !email || !message) {
+        alert("Please fill out all fields before submitting.");
+        return;
+      }
+
+      const text = `Hello! New order/inquiry from Yasir Broast website:\n\n*Name:* ${name}\n*Email:* ${email}\n*Message:* ${message}`;
+      const url = `https://wa.me/${phone}?text=${encodeURIComponent(text)}`;
+      window.open(url, "_blank");
+    }
+
+    // WhatsApp send function (footer mini form)
+    function sendFooterWhatsApp() {
+      const phone = "923001234567";
+
+      const name = document.getElementById('footerName').value.trim();
+      const email = document.getElementById('footerEmail').value.trim();
+      const message = document.getElementById('footerMessage').value.trim();
+
+      if (!name || !email || !message) {
+        alert("Please fill out all fields before submitting.");
+        return;
+      }
+
+      const text = `Hello! New order/inquiry from Yasir Broast footer:\n\n*Name:* ${name}\n*Email:* ${email}\n*Order/Message:* ${message}`;
+      const url = `https://wa.me/${phone}?text=${encodeURIComponent(text)}`;
+      window.open(url, "_blank");
+    }
+
+    // ===== MENU PAGE OPENER =====
+    function openMenuPage(type) {
+      let title = '';
+      let content = '';
+      const style = `
+        <style>
+          body { font-family: 'Inter', sans-serif; background: #121212; color: #f0f0f0; padding: 40px 20px; max-width: 900px; margin: 0 auto; }
+          h1 { font-family: 'Playfair Display', serif; color: #f5b342; font-size: 2.5rem; text-align: center; margin-bottom: 10px; }
+          .sub { text-align: center; color: #b0b0b0; margin-bottom: 40px; letter-spacing: 1px; }
+          .item { display: flex; justify-content: space-between; padding: 16px 0; border-bottom: 1px solid rgba(245,179,66,0.15); font-size: 1.1rem; }
+          .item .name { font-weight: 500; }
+          .item .price { color: #f5b342; font-weight: 700; }
+          .footer-note { text-align: center; margin-top: 40px; color: #b0b0b0; font-size: 0.9rem; }
+          .back-btn { display: inline-block; margin-top: 30px; background: #f5b342; color: #121212; padding: 12px 32px; border-radius: 50px; text-decoration: none; font-weight: 700; }
+          .back-btn:hover { background: #ffd966; }
+        </style>
+      `;
+
+      if (type === 'burger') {
+        title = 'Burgers & Sandwiches';
+        content = `
+          <div class="item"><span class="name">Big Mouth Chicken Burger</span><span class="price">PKR 650</span></div>
+          <div class="item"><span class="name">House Special Cheese Burger</span><span class="price">PKR 750</span></div>
+          <div class="item"><span class="name">Chef Special Zinger Burger</span><span class="price">PKR 700</span></div>
+          <div class="item"><span class="name">Fish Burger</span><span class="price">PKR 600</span></div>
+          <div class="item"><span class="name">Grilled Chicken Club Sandwich</span><span class="price">PKR 750</span></div>
+          <div class="item"><span class="name">Chicken Club Sandwich</span><span class="price">PKR 690</span></div>
+          <div class="item"><span class="name">Grilled Chicken Sandwich</span><span class="price">PKR 600</span></div>
+          <div class="item"><span class="name">Zinger Burger</span><span class="price">PKR 620</span></div>
+          <div class="item"><span class="name">Grilled Chicken Burger</span><span class="price">PKR 580</span></div>
+          <div class="item"><span class="name">Chicken Crunch Sandwich</span><span class="price">PKR 550</span></div>
+          <div class="item"><span class="name">Malai Chicken Wrap</span><span class="price">PKR 540</span></div>
+          <div class="item"><span class="name">Chicken Tikka Wrap</span><span class="price">PKR 560</span></div>
+          <div class="item"><span class="name">Vegetable Paratha Roll</span><span class="price">PKR 450</span></div>
+          <div class="item"><span class="name">Fries</span><span class="price">PKR 350</span></div>
+        `;
+      } else if (type === 'broast') {
+        title = 'Broast & Fish';
+        content = `
+          <div class="item"><span class="name">Chicken Broast</span><span class="price">PKR 620</span></div>
+          <div class="item"><span class="name">Chicken Degi Roast / Steamed Roast</span><span class="price">PKR 950</span></div>
+          <div class="item"><span class="name">Chicken Breast Piece</span><span class="price">PKR 600</span></div>
+          <div class="item"><span class="name">Special Spicy Broast</span><span class="price">PKR 650</span></div>
+          <div class="item"><span class="name">Finger Fish</span><span class="price">PKR 590</span></div>
+        `;
+      } else if (type === 'specialities') {
+        title = 'Pakistani Specialities';
+        content = `
+          <div class="item"><span class="name">Chicken Karahi</span><span class="price">PKR 950</span></div>
+          <div class="item"><span class="name">Chicken White Karahi</span><span class="price">PKR 1050</span></div>
+          <div class="item"><span class="name">Mutton Karahi</span><span class="price">PKR 1450</span></div>
+          <div class="item"><span class="name">Mutton Kunna</span><span class="price">PKR 1550</span></div>
+          <div class="item"><span class="name">Chicken Biryani</span><span class="price">PKR 850</span></div>
+          <div class="item"><span class="name">Mutton Biryani</span><span class="price">PKR 1250</span></div>
+        `;
+      }
+
+      const html = `
+        <!DOCTYPE html>
+        <html>
+        <head><title>${title} — Yasir Broast</title>
+        <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+        ${style}
+        </head>
+        <body>
+          <h1>${title}</h1>
+          <p class="sub">Yasir Broast — Fresh & Delicious</p>
+          ${content}
+          <div class="footer-note">Prices inclusive of all taxes. Call +92 300 1234567 to order.</div>
+          <div style="text-align:center;">
+            <a href="#" class="back-btn" onclick="window.close()">← Back to Website</a>
+          </div>
+        </body>
+        </html>
+      `;
+
+      const newTab = window.open();
+      newTab.document.write(html);
+      newTab.document.close();
+    }
+
+    // ===== POLICY PAGES OPENER =====
+    function openPolicy(type) {
+      let title = '';
+      let content = '';
+
+      if (type === 'privacy') {
+        title = 'Privacy Policy';
+        content = `
+          <p>Yasir Broast respects your privacy. We collect only the information you provide (name, email, message) to process orders and inquiries.</p>
+          <p>We do not share your data with third parties except for delivery purposes. All information is kept secure.</p>
+          <p>For any privacy concerns, contact us at info@yasirbroast.com.</p>
+        `;
+      } else if (type === 'terms') {
+        title = 'Terms & Conditions';
+        content = `
+          <p>By using our website and placing an order, you agree to provide accurate information and pay the listed prices.</p>
+          <p>Orders are subject to availability. We reserve the right to refuse service. All prices are in PKR and inclusive of applicable taxes.</p>
+          <p>For cancellations, please call us as soon as possible.</p>
+        `;
+      } else if (type === 'faq') {
+        title = 'Frequently Asked Questions';
+        content = `
+          <p><strong>Do you deliver?</strong> Yes, we deliver within a 5 km radius. Minimum order Rs. 500.</p>
+          <p><strong>What are your timings?</strong> Open daily from 11:00 AM to 11:00 PM.</p>
+          <p><strong>Is your meat halal?</strong> Absolutely, 100% halal certified.</p>
+          <p><strong>How can I order?</strong> Call or WhatsApp us at +92 300 1234567, or use the form on our website.</p>
+        `;
+      }
+
+      const style = `
+        <style>
+          body { font-family: 'Inter', sans-serif; background: #121212; color: #f0f0f0; padding: 40px 20px; max-width: 800px; margin: 0 auto; line-height: 1.8; }
+          h1 { font-family: 'Playfair Display', serif; color: #f5b342; font-size: 2.2rem; text-align: center; margin-bottom: 30px; }
+          p { color: #d0d0d0; margin-bottom: 18px; }
+          .back-btn { display: inline-block; margin-top: 30px; background: #f5b342; color: #121212; padding: 12px 32px; border-radius: 50px; text-decoration: none; font-weight: 700; }
+          .back-btn:hover { background: #ffd966; }
+        </style>
+      `;
+
+      const html = `
+        <!DOCTYPE html>
+        <html>
+        <head><title>${title} — Yasir Broast</title>
+        <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+        ${style}
+        </head>
+        <body>
+          <h1>${title}</h1>
+          ${content}
+          <div style="text-align:center;">
+            <a href="#" class="back-btn" onclick="window.close()">← Close</a>
+          </div>
+        </body>
+        </html>
+      `;
+
+      const newTab = window.open();
+      newTab.document.write(html);
+      newTab.document.close();
+    }
+  </script>
+
+</body>
+</html>

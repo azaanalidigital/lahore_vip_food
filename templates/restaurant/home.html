@@ -1,0 +1,462 @@
+{% load static %}<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Yasir Broast — Fresh Food & Great Taste</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="{% static 'restaurant/css/yasir_broast.css' %}">
+<meta name="description" content="Broast, burgers and Pakistani specialities from Yasir Broast. Browse the menu and order online."><meta property="og:title" content="Yasir Broast — Fresh Food & Great Taste"><meta property="og:description" content="Broast, burgers and Pakistani specialities from Yasir Broast. Browse the menu and order online."><meta property="og:type" content="website"><meta name="twitter:card" content="summary_large_image"></head>
+<body>
+
+  <!-- ===== HEADER ===== -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="#" class="logo">
+        <i class="fas fa-drumstick-bite"></i>
+        YASIR BROAST<span>.</span>
+      </a>
+
+      <nav class="main-nav" id="mainNav">
+        <a href="#home">Home</a>
+        <a href="#menu">Menu</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+        <a href="/track/">Track Order</a>
+      </nav>
+
+      <a href="/order/" class="nav-cta">
+        <i class="fas fa-utensils"></i> Order Now
+      </a>
+
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero" id="home">
+    <div class="hero-content">
+      <div class="hero-badge">
+        <i class="fas fa-star"></i> #1 Broast in Town
+      </div>
+      <h1>
+        Fresh Food<br>
+        <span class="gold">Great Taste</span><br>
+        Every Time
+      </h1>
+      <p>Taste that brings you back. Crispy, juicy, and made with love — just the way you like it.</p>
+      <div class="hero-actions">
+        <a href="/order/" class="btn btn-primary">
+          <i class="fas fa-utensils"></i> Order Now
+        </a>
+        <a href="#contact" class="btn btn-outline">
+          <i class="fas fa-phone"></i> Contact Us
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <div class="food-marquee" aria-hidden="true"><div class="marquee-track"><span>Chicken Broast <i class="fas fa-fire"></i></span><span>Sajji <i class="fas fa-fire"></i></span><span>BBQ Tikka <i class="fas fa-fire"></i></span><span>Chicken Karahi <i class="fas fa-fire"></i></span><span>Zinger Burger <i class="fas fa-fire"></i></span><span>Biryani <i class="fas fa-fire"></i></span><span>Chicken Broast <i class="fas fa-fire"></i></span><span>Sajji <i class="fas fa-fire"></i></span><span>BBQ Tikka <i class="fas fa-fire"></i></span><span>Chicken Karahi <i class="fas fa-fire"></i></span><span>Zinger Burger <i class="fas fa-fire"></i></span><span>Biryani <i class="fas fa-fire"></i></span></div></div>
+  <!-- ===== MENU / SERVICES (click opens full menu in new tab) ===== -->
+  <section class="section section-dark" id="menu">
+    <div class="container">
+      <div class="center">
+        <p class="section-label">Our Menu</p>
+        <h2 class="section-title">Crispy & Delicious</h2>
+        <p class="section-sub">Every bite is a burst of flavor. Try our signature broast and more.</p>
+      </div>
+
+      <div class="menu-grid">
+        <!-- Chicken Broast Card – opens Broast menu in new tab -->
+        <a href="/order/" class="menu-card">
+          <span class="menu-icon"><i class="fas fa-drumstick-bite"></i></span>
+          <h3>Chicken Broast</h3>
+          <p>Crispy outside, juicy inside — our signature recipe.</p>
+          <span class="menu-price">Rs. 620</span>
+        </a>
+
+        <!-- Burgers Card – opens Burgers menu in new tab -->
+        <a href="/order/" class="menu-card">
+          <span class="menu-icon"><i class="fas fa-hamburger"></i></span>
+          <h3>Burgers & Sandwiches</h3>
+          <p>Big Mouth, Zinger, Grilled & more.</p>
+          <span class="menu-price">from Rs. 450</span>
+        </a>
+
+        <!-- Pakistani Specialities Card – opens specialities menu in new tab -->
+        <a href="/order/" class="menu-card">
+          <span class="menu-icon"><i class="fas fa-utensils"></i></span>
+          <h3>Pakistani Specialities</h3>
+          <p>Karahi, Biryani, Kunna & more.</p>
+          <span class="menu-price">from Rs. 850</span>
+        </a>
+
+        <!-- Fish & Chips Card – opens Broast/Fish menu in new tab -->
+        <a href="/order/" class="menu-card">
+          <span class="menu-icon"><i class="fas fa-fish"></i></span>
+          <h3>Fish & Chips</h3>
+          <p>Golden fried fish with crispy fries.</p>
+          <span class="menu-price">Rs. 590</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ABOUT (with animated photo frame) ===== -->
+  <section class="section section-darker" id="about">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-text">
+          <p class="section-label">About Us</p>
+          <h2 class="section-title">Our Story</h2>
+          <p>
+            Yasir Broast started with a simple mission — to serve the crispiest, most flavorful broast in town. 
+            We use only fresh chicken, our secret blend of spices, and cook every order to perfection.
+          </p>
+          <p>
+            From our humble beginning to becoming a local favorite, we've never compromised on quality. 
+            Every meal is prepared with love and served with a smile.
+          </p>
+          <ul class="skill-tags">
+            <li><i class="fas fa-check-circle"></i> 100% Fresh</li>
+            <li><i class="fas fa-check-circle"></i> Halal</li>
+            <li><i class="fas fa-check-circle"></i> Fast Delivery</li>
+            <li><i class="fas fa-check-circle"></i> Family Recipes</li>
+          </ul>
+        </div>
+
+        <div class="photo-frame">
+          <span class="circle circle1"></span>
+          <span class="circle circle2"></span>
+          <span class="circle circle3"></span>
+          <img src="{% static 'restaurant/images/about-kitchen.jpg' %}" alt="Delicious Broast">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CONTACT ===== -->
+  <section class="section section-dark" id="contact">
+    <div class="container">
+      <div class="center" style="margin-bottom: 50px;">
+        <p class="section-label">Get in Touch</p>
+        <h2 class="section-title">Visit Us or Order Online</h2>
+        <p class="section-sub">We're just a call away. Order now for pickup or delivery.</p>
+      </div>
+
+      <div class="contact-grid">
+        <div class="contact-info">
+          <p>Have a question or want to place an order? Reach out — we're always happy to help.</p>
+
+          <a href="tel:+923001234567" class="contact-item">
+            <i class="fas fa-phone-alt"></i> +92 300 1234567
+          </a>
+          <a href="https://wa.me/923001234567" class="contact-item">
+            <i class="fab fa-whatsapp"></i> WhatsApp: +92 300 1234567
+          </a>
+          <a href="mailto:info@yasirbroast.com" class="contact-item">
+            <i class="fas fa-envelope"></i> info@yasirbroast.com
+          </a>
+          <div class="contact-item" style="cursor: default;">
+            <i class="fas fa-map-marker-alt"></i> Main Boulevard, Lahore, Pakistan
+          </div>
+          <div class="contact-item" style="cursor: default;">
+            <i class="fas fa-clock"></i> Open Daily: 11:00 AM — 11:00 PM
+          </div>
+        </div>
+
+        
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER (enhanced with forms, policy, adsense) ===== -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+
+      <!-- AdSense-ready placeholder -->
+      <div class="adsense-block">
+        <i class="fas fa-ad"></i> YASIR BROAST-Contect
+      </div>
+
+      <div class="footer-grid">
+        <!-- Column 1: Brand & mini contact form -->
+        <div class="footer-col">
+          <h4>Yasir Broast</h4>
+          <p style="margin-bottom: 16px; color: var(--text-muted); font-size: 0.88rem;">
+            Fresh food, great taste. Order online or visit us.
+          </p>
+          <div class="footer-contact-form">
+            <form onsubmit="event.preventDefault(); sendFooterWhatsApp();">
+              <label>
+                Name
+                <input type="text" id="footerName" placeholder="Your name" required>
+              </label>
+              <label>
+                Address
+                <input type="text" id="footeradress" placeholder="your Adress" required>
+              </label>
+              <label>
+                Order / Message
+                <textarea id="footerMessage" rows="2" placeholder="What would you like?" required></textarea>
+              </label>
+              <button type="submit">
+                <i class="fab fa-whatsapp"></i> Send Order
+              </button>
+            </form>
+          </div>
+        </div>
+
+        <!-- Column 2: Navigation -->
+        <div class="footer-col">
+          <h4>Explore</h4>
+          <a href="#home">Home</a>
+          <a href="#menu">Menu</a>
+          <a href="#about">About</a>
+          <a href="#contact">Contact</a>
+          <a href="/order/">Broast</a>
+          <a href="/order/">Burgers</a>
+          <a href="/order/">Specialities</a>
+        </div>
+
+        <!-- Column 3: Contact Info -->
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <div class="contact-line"><i class="fas fa-phone-alt"></i> +92 300 1234567</div>
+          <div class="contact-line"><i class="fab fa-whatsapp"></i> +92 300 1234567</div>
+          <div class="contact-line"><i class="fas fa-envelope"></i> info@yasirbroast.com</div>
+          <div class="contact-line"><i class="fas fa-map-marker-alt"></i> Main Boulevard, Lahore</div>
+          <div class="contact-line"><i class="fas fa-clock"></i> 11 AM – 11 PM</div>
+        </div>
+
+        <!-- Column 4: Legal / Policy -->
+        <div class="footer-col">
+          <h4>Legal</h4>
+          <a href="javascript:void(0)" onclick="openPolicy('privacy')">Privacy Policy</a>
+          <a href="javascript:void(0)" onclick="openPolicy('terms')">Terms & Conditions</a>
+          <a href="javascript:void(0)" onclick="openPolicy('faq')">FAQ</a>
+        </div>
+      </div>
+
+      <!-- Bottom bar -->
+      <div class="footer-bottom">
+        <p>&copy; <span id="year"></span> <span class="gold">Yasir Broast</span>. All rights reserved.</p>
+        <a href="/admin/" class="staff-btn"><i class="fas fa-user-shield"></i> Staff Login</a>
+        <nav class="footer-legal-nav">
+          <a href="javascript:void(0)" onclick="openPolicy('privacy')">Privacy Policy</a>
+          <a href="javascript:void(0)" onclick="openPolicy('terms')">Terms & Conditions</a>
+          <a href="javascript:void(0)" onclick="openPolicy('faq')">FAQ</a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===== JAVASCRIPT ===== -->
+  <script>
+    // Set current year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Mobile menu toggle
+    const menuToggle = document.getElementById('menuToggle');
+    const mainNav = document.getElementById('mainNav');
+
+    menuToggle.addEventListener('click', () => {
+      mainNav.classList.toggle('open');
+    });
+
+    // Close menu on link click
+    mainNav.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        mainNav.classList.remove('open');
+      });
+    });
+
+    // WhatsApp send function (main contact form)
+    function sendToWhatsApp() {
+      const phone = "923001234567";
+
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const message = document.getElementById('message').value.trim();
+
+      if (!name || !email || !message) {
+        alert("Please fill out all fields before submitting.");
+        return;
+      }
+
+      const text = `Hello! New order/inquiry from Yasir Broast website:\n\n*Name:* ${name}\n*Email:* ${email}\n*Message:* ${message}`;
+      const url = `https://wa.me/${phone}?text=${encodeURIComponent(text)}`;
+      window.open(url, "_blank");
+    }
+
+    // WhatsApp send function (footer mini form)
+    function sendFooterWhatsApp() {
+      const phone = "923001234567";
+
+      const name = document.getElementById('footerName').value.trim();
+      const email = document.getElementById('footeradress').value.trim();
+      const message = document.getElementById('footerMessage').value.trim();
+
+      if (!name || !email || !message) {
+        alert("Please fill out all fields before submitting.");
+        return;
+      }
+
+      const text = `Hello! New order/inquiry from Yasir Broast footer:\n\n*Name:* ${name}\n*Email:* ${email}\n*Order/Message:* ${message}`;
+      const url = `https://wa.me/${phone}?text=${encodeURIComponent(text)}`;
+      window.open(url, "_blank");
+    }
+
+    // ===== MENU PAGE OPENER =====
+    function openMenuPage(type) {
+      let title = '';
+      let content = '';
+      const style = `
+        <style>
+          body { font-family: 'Inter', sans-serif; background: #121212; color: #f0f0f0; padding: 40px 20px; max-width: 900px; margin: 0 auto; }
+          h1 { font-family: 'Playfair Display', serif; color: #f5b342; font-size: 2.5rem; text-align: center; margin-bottom: 10px; }
+          .sub { text-align: center; color: #b0b0b0; margin-bottom: 40px; letter-spacing: 1px; }
+          .item { display: flex; justify-content: space-between; padding: 16px 0; border-bottom: 1px solid rgba(245,179,66,0.15); font-size: 1.1rem; }
+          .item .name { font-weight: 500; }
+          .item .price { color: #f5b342; font-weight: 700; }
+          .footer-note { text-align: center; margin-top: 40px; color: #b0b0b0; font-size: 0.9rem; }
+          .back-btn { display: inline-block; margin-top: 30px; background: #f5b342; color: #121212; padding: 12px 32px; border-radius: 50px; text-decoration: none; font-weight: 700; }
+          .back-btn:hover { background: #ffd966; }
+        </style>
+      `;
+
+      if (type === 'burger') {
+        title = 'Burgers & Sandwiches';
+        content = `
+          <div class="item"><span class="name">Big Mouth Chicken Burger</span><span class="price">PKR 650</span></div>
+          <div class="item"><span class="name">House Special Cheese Burger</span><span class="price">PKR 750</span></div>
+          <div class="item"><span class="name">Chef Special Zinger Burger</span><span class="price">PKR 700</span></div>
+          <div class="item"><span class="name">Fish Burger</span><span class="price">PKR 600</span></div>
+          <div class="item"><span class="name">Grilled Chicken Club Sandwich</span><span class="price">PKR 750</span></div>
+          <div class="item"><span class="name">Chicken Club Sandwich</span><span class="price">PKR 690</span></div>
+          <div class="item"><span class="name">Grilled Chicken Sandwich</span><span class="price">PKR 600</span></div>
+          <div class="item"><span class="name">Zinger Burger</span><span class="price">PKR 620</span></div>
+          <div class="item"><span class="name">Grilled Chicken Burger</span><span class="price">PKR 580</span></div>
+          <div class="item"><span class="name">Chicken Crunch Sandwich</span><span class="price">PKR 550</span></div>
+          <div class="item"><span class="name">Malai Chicken Wrap</span><span class="price">PKR 540</span></div>
+          <div class="item"><span class="name">Chicken Tikka Wrap</span><span class="price">PKR 560</span></div>
+          <div class="item"><span class="name">Vegetable Paratha Roll</span><span class="price">PKR 450</span></div>
+          <div class="item"><span class="name">Fries</span><span class="price">PKR 350</span></div>
+        `;
+      } else if (type === 'broast') {
+        title = 'Broast & Fish';
+        content = `
+          <div class="item"><span class="name">Chicken Broast</span><span class="price">PKR 620</span></div>
+          <div class="item"><span class="name">Chicken Degi Roast / Steamed Roast</span><span class="price">PKR 950</span></div>
+          <div class="item"><span class="name">Chicken Breast Piece</span><span class="price">PKR 600</span></div>
+          <div class="item"><span class="name">Special Spicy Broast</span><span class="price">PKR 650</span></div>
+          <div class="item"><span class="name">Finger Fish</span><span class="price">PKR 590</span></div>
+        `;
+      } else if (type === 'specialities') {
+        title = 'Pakistani Specialities';
+        content = `
+          <div class="item"><span class="name">Chicken Karahi</span><span class="price">PKR 950</span></div>
+          <div class="item"><span class="name">Chicken White Karahi</span><span class="price">PKR 1050</span></div>
+          <div class="item"><span class="name">Mutton Karahi</span><span class="price">PKR 1450</span></div>
+          <div class="item"><span class="name">Mutton Kunna</span><span class="price">PKR 1550</span></div>
+          <div class="item"><span class="name">Chicken Biryani</span><span class="price">PKR 850</span></div>
+          <div class="item"><span class="name">Mutton Biryani</span><span class="price">PKR 1250</span></div>
+        `;
+      }
+
+      const html = `
+        <!DOCTYPE html>
+        <html>
+        <head><title>${title} — Yasir Broast</title>
+        <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+        ${style}
+        </head>
+        <body>
+          <h1>${title}</h1>
+          <p class="sub">Yasir Broast — Fresh & Delicious</p>
+          ${content}
+          <div class="footer-note">Prices inclusive of all taxes. Call +92 300 1234567 to order.</div>
+          <div style="text-align:center;">
+            <a href="#" class="back-btn" onclick="window.close()">← Back to Website</a>
+          </div>
+        </body>
+        </html>
+      `;
+
+      const newTab = window.open();
+      newTab.document.write(html);
+      newTab.document.close();
+    }
+
+    // ===== POLICY PAGES OPENER =====
+    function openPolicy(type) {
+      let title = '';
+      let content = '';
+
+      if (type === 'privacy') {
+        title = 'Privacy Policy';
+        content = `
+          <p>Yasir Broast respects your privacy. We collect only the information you provide (name, email, message) to process orders and inquiries.</p>
+          <p>We do not share your data with third parties except for delivery purposes. All information is kept secure.</p>
+          <p>For any privacy concerns, contact us at info@yasirbroast.com.</p>
+        `;
+      } else if (type === 'terms') {
+        title = 'Terms & Conditions';
+        content = `
+          <p>By using our website and placing an order, you agree to provide accurate information and pay the listed prices.</p>
+          <p>Orders are subject to availability. We reserve the right to refuse service. All prices are in PKR and inclusive of applicable taxes.</p>
+          <p>For cancellations, please call us as soon as possible.</p>
+        `;
+      } else if (type === 'faq') {
+        title = 'Frequently Asked Questions';
+        content = `
+          <p><strong>Do you deliver?</strong> Yes, we deliver within a 5 km radius. Minimum order Rs. 500.</p>
+          <p><strong>What are your timings?</strong> Open daily from 11:00 AM to 11:00 PM.</p>
+          <p><strong>Is your meat halal?</strong> Absolutely, 100% halal certified.</p>
+          <p><strong>How can I order?</strong> Call or WhatsApp us at +92 300 1234567, or use the form on our website.</p>
+        `;
+      }
+
+      const style = `
+        <style>
+          body { font-family: 'Inter', sans-serif; background: #121212; color: #f0f0f0; padding: 40px 20px; max-width: 800px; margin: 0 auto; line-height: 1.8; }
+          h1 { font-family: 'Playfair Display', serif; color: #f5b342; font-size: 2.2rem; text-align: center; margin-bottom: 30px; }
+          p { color: #d0d0d0; margin-bottom: 18px; }
+          .back-btn { display: inline-block; margin-top: 30px; background: #f5b342; color: #121212; padding: 12px 32px; border-radius: 50px; text-decoration: none; font-weight: 700; }
+          .back-btn:hover { background: #ffd966; }
+        </style>
+      `;
+
+      const html = `
+        <!DOCTYPE html>
+        <html>
+        <head><title>${title} — Yasir Broast</title>
+        <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+        ${style}
+        </head>
+        <body>
+          <h1>${title}</h1>
+          ${content}
+          <div style="text-align:center;">
+            <a href="#" class="back-btn" onclick="window.close()">← Close</a>
+          </div>
+        </body>
+        </html>
+      `;
+
+      const newTab = window.open();
+      newTab.document.write(html);
+      newTab.document.close();
+    }
+  </script>
+
+<script src="{% static 'restaurant/js/presentation.js' %}"></script>
+</body>
+</html>
